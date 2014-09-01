@@ -1,0 +1,8 @@
+<form class="box-container" {{action "login" on="submit"}}>
+  {{#if loginFailed}}
+    <b class="text text-danger">{{ error.error }}</b>
+  {{/if}}
+  {{input value=username type="text" placeholder="Username" class="form-control" required="true"}}
+  {{input value=password type="password" placeholder="Password" class="form-control" required="true"}}
+  <input type="submit" value="Login" class="btn btn-success">
+</form>

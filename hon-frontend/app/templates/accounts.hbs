@@ -1,0 +1,18 @@
+<div class="box-container">
+  {{#link-to "new-account" model.user_slug}}
+    <button class="btn btn-primary btn-lg">
+      New Account
+    </button>
+  {{/link-to}}
+</div>
+{{#each account in accounts}}
+<div class="box-container">
+  <p class="campaign-header">{{ account.name }}</p>
+  <p class="text">{{ account.sum }}</p>
+  {{#link-to "account-transactions" model.user_slug account.name}}
+    <button class="btn btn-primary btn-lg">
+      Add Transaction
+    </button>
+  {{/link-to}}
+</div>
+{{/each}}

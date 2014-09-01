@@ -1,0 +1,14 @@
+<div class="box-container">
+  {{#link-to "accounts" model.user_slug}}
+    <button class="btn btn-primary btn-lg">
+      Back
+    </button>
+  {{/link-to}}
+</div>
+<form id="new-campaign-form" class="box-container" {{action "createAccount" on="submit"}}>
+  {{#if formFailed}}
+    <b class="text text-danger">{{ error.error }}</b>
+  {{/if}}
+  {{input value=account type="text" placeholder="Account Name" class="form-control" required="true"}}
+  <input type="submit" class="btn btn-success">
+</form>
