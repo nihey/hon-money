@@ -26,3 +26,9 @@ CREATE TABLE IF NOT EXISTS hon_transaction(
     transaction_date timestamp NOT NULL,
     creation_date timestamp NOT NULL
 );
+
+CREATE OR REPLACE VIEW hon_transaction_view AS
+SELECT t.id, t.name, value, description, account_id,
+       a.name account_name, transaction_date, t.creation_date
+FROM hon_transaction t
+JOIN hon_account a on t.account_id = a.id

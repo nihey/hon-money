@@ -1,0 +1,36 @@
+<div class="box-container">
+  {{#link-to "accounts" model.user_slug}}
+    <button class="btn btn-primary btn-lg">
+      Back
+    </button>
+  {{/link-to}}
+</div>
+<form id="new-campaign-form" class="box-container" {{action "createTransaction" on="submit"}}>
+  {{#if formFailed}}
+    <b class="text text-danger">{{ error.error }}</b>
+  {{/if}}
+  {{input value=name type="text" placeholder="Name" class="form-control" required="true"}}
+  {{input value=value type="number" step="any" placeholder="Value" class="form-control" required="true"}}
+  <input type="submit" class="btn btn-success">
+</form>
+
+<div class="box-container box-max table-responsive">
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Value</th>
+        <th>Creation Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each transaction in transactions}}
+        <tr>
+          <td>{{ transaction.name }}</td>
+          <td>{{ transaction.value }}</td>
+          <td>{{date-number transaction.creation_date }}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

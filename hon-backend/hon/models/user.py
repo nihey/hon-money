@@ -71,9 +71,13 @@ class Account(BaseModel):
 
     @property
     def sum(self):
+        from decimal import Decimal as DecimalVal
         store = get_default_store()
         transactions = store.find(Transaction, account_id=self.id)
-        return sum(transactions)
+        value = DecimalVal(0)
+        for transaction in transactions:
+            value += transaction.value
+        return value
 
     #
     # Public API
