@@ -35,6 +35,8 @@ class AccountResource(BaseResource):
         'user_id': Account.user_id,
     }
 
+    order_by = Account.name
+
     def post(self):
         user = get_logged_user()
         if not user:
