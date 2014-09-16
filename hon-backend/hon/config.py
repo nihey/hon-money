@@ -9,6 +9,7 @@ class Config(object):
     DB_USER = 'hon'
     DB_PASS = ''
     DB_HOST = 'localhost'
+    DB_PORT = '5432'
 
     ALLOWED_DOMAIN = 'http://localhost:4200'
 

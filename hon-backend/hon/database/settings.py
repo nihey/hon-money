@@ -9,7 +9,7 @@ from app import app
 
 class DatabaseSettings(object):
 
-    def __init__(self, dbms, username, password, address, db_name):
+    def __init__(self, dbms, username, password, address, port, db_name):
         # Registering connection data
         self.dbms = dbms
         self.username = username
@@ -19,7 +19,7 @@ class DatabaseSettings(object):
 
         # Generating URI to connect to the RDBMS
         # Exemplo: mysql://username:password@hostname/database_name
-        authority = "%s:%s@%s" % (username, password, address)
+        authority = "%s:%s@%s:%s" % (username, password, address, port)
         uri_string = "%s://%s/%s" % (dbms, authority, db_name)
 
         self.uri = URI(uri_string)
@@ -34,4 +34,4 @@ config = app.config
 
 default_settings = DatabaseSettings(config['RDBMS'], config['DB_USER'],
                                     config['DB_PASS'], config['DB_HOST'],
-                                    config['DB_NAME'])
+                                    config['DB_PORT'], config['DB_NAME'])
