@@ -1,3 +1,7 @@
+# Local settings
+hon/localconfig.py
+
+# python bytecode
 *.pyc
 
 # Virtual Environment

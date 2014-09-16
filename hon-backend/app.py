@@ -8,8 +8,14 @@ from hon.config import Config
 
 app = Flask(__name__)
 
-# Configura o servidor a partir do arquivo de configuração em config.py
+# Configure server based on Config class
 app.config.from_object(Config)
 
-# Registra a api com prefixo '/c/r/a' (Crewee Restful API)
+try:
+    from hon.localconfig import LocalConfig
+    app.config.from_object(LocalConfig)
+except ImportError:
+    print ' * * localconfig not found, loading from Config only.'
+
+
 api = Api(app, prefix='/api')
