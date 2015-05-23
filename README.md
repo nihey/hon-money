@@ -8,7 +8,7 @@ and [EmberJS](http://emberjs.com/) (Frontend).
 For specific building instructions, follow the README.md inside each folder:
 
 - [Frontend](https://github.com/nihey/hon/tree/master/hon-frontend)
-- Backend(TBA)
+- [Backend](https://github.com/nihey/hon/tree/master/hon-backend)
 
 # License
 
